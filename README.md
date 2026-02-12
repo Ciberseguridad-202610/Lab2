@@ -15,7 +15,7 @@ En general, se utilizó el paquete `pycryptodome` para implementar la solución.
 
 ## Uso del código
 
-Antes de empezar, es necesario crer un archivo `k.key` con el generador de claves (16 bits).
+Antes de empezar, es necesario crear un archivo `k.key` con el generador de claves (16 bits).
 
 ```zsh
 python3 key_gen.py
@@ -23,13 +23,14 @@ python3 key_gen.py
 
 Una vez hecho esto, en el root del proyecto encontrará el archivo `k.key` con la clave generada.
 
-Para encriptar un archivo, se debe ejecutar el siguiente comando:
+Para encriptar o desencriptar un archivo, se debe ejecutar el siguiente comando:
 
 ```zsh
-python3 encrypt.py <modo> <archivo a encriptar> <llave>
+python3 aes.py <modo> <archivo> <llave>
 ```
 
-Donde `<modo>` es el modo de operación a utilizar (e o d para encriptar o desencriptar respectivamente), 
-`<archivo a encriptar>` es la ruta al archivo a encriptar y `<llave>` es la ruta a la llave de 16 bits (en este caso, `k.key`).
+Donde `<modo>` es el modo de operación a utilizar (e o d, para encriptar o desencriptar respectivamente), 
+`<archivo>` es la ruta al archivo a encriptar/desencriptar y `<llave>` es la ruta a la llave de 16 bits (en este caso, `k.key`).
 
-El resultado de la encriptación se guardará en un archivo con el mismo nombre que el archivo a encriptar pero con la extensión `.out`.
+El resultado de la encriptación se guardará en un archivo con el mismo nombre que el archivo a encriptar pero con un prefijo `enc_`. 
+Por ejemplo, si el archivo a encriptar es `archivo.txt`, el resultado se guardará en `enc_archivo.txt`.

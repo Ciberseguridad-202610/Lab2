@@ -34,3 +34,25 @@ Donde `<modo>` es el modo de operación a utilizar (e o d, para encriptar o dese
 
 El resultado de la encriptación se guardará en un archivo con el mismo nombre que el archivo a encriptar pero con un prefijo `enc_`. 
 Por ejemplo, si el archivo a encriptar es `archivo.txt`, el resultado se guardará en `enc_archivo.txt`.
+
+## Ejemplo de uso
+
+Asumiendo que se está corriendo desde ~, y que el archivo a encriptar se encuentra en `~/in.txt`, el comando para encriptar el archivo sería:
+
+
+### Generar una llave
+```zsh
+python3 key_gen.py
+```
+El resultado es un archivo binario de 16 bytes y se guardará en `~/k.key`.
+
+
+### Encriptar un archivo
+```zsh
+python3 aes.py e ~/in.txt ~/k.key
+```
+
+### Desencriptar un archivo
+```zsh
+python3 aes.py d ~/enc_in.txt ~/k.key
+```

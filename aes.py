@@ -1,5 +1,6 @@
 # Ciberseguridad Laboratorio 2
 import sys
+import os
 
 from Crypto.Cipher import AES # import AES cipher from the Crypto library
 
@@ -11,8 +12,8 @@ def encrypt( f: bytes, k:bytes ) -> tuple[bytes, bytes]:
     :return: Tuple of (nonce, ciphertext) of the encrypted file, in bytes format.
     """
     aes = AES.new(k, AES.MODE_EAX) # create a new AES cipher object with EAX mode
-    ciphertext = aes.encrypt(f) # encrypt the input file using the AES cipher
-    return (aes.nonce, ciphertext) # return nonce and ciphertext
+    c = aes.encrypt(f) # encrypt the input file using the AES cipher
+    return aes.nonce, c  # return nonce and ciphertext
 
 def decrypt( f: bytes, k: bytes, nonce: bytes ) -> bytes:
     """
@@ -65,17 +66,24 @@ if __name__ == '__main__':
 
         result = run(mode, f_bytes, key, nonce)
 
+        # Extract filename from filepath
+        filename = os.path.basename(file_path)
+        name_without_ext = os.path.splitext(filename)[0]
+        file_ext = os.path.splitext(filename)[1]
+
         if result and mode == 'e':
             nonce, ciphertext = result
+            output_file = f"enc_{name_without_ext}.txt"
             # Store nonce at the beginning of the output file
-            with open("out.txt", 'wb') as f:
+            with open(output_file, 'wb') as f:
                 f.write(nonce + ciphertext)
-            print(f">> Encrypted data written to out.txt")
+            print(f">> Encrypted data written to {output_file}")
 
         elif result and mode == 'd':
-            with open("in.txt", 'wb') as f:
+            output_file = f"dec_{name_without_ext}.txt"
+            with open(output_file, 'wb') as f:
                 f.write(result)
-            print(f">> Decrypted data written to in.txt")
+            print(f">> Decrypted data written to {output_file}")
     else:
         print(">> Usage: python aes.py <mode> <file_path> <key_path>")
         print(">> <mode>: 'e' for encryption or 'd' for decryption")

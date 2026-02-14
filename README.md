@@ -11,7 +11,16 @@
 ## Descripción del laboratorio
 
 En este repositorio se encuentra el código del algoritmo AES-128 para encriptar y desencriptar archivos.  
-En general, se utilizó el paquete `pycryptodome` para implementar la solución.  
+En general, se utilizó el paquete `pycryptodome` para implementar la solución.
+
+### Algoritmo AES-128
+
+El algoritmo AES-128 es uno de los algoritmos de clave simétrica más seguros de hoy en día,
+razón por la cual es frecuentemente utilziado para encriptar información, garantizando 
+confidencialidad e integridad en los sistemas. Con el objetivo de proteger los archivos antes
+de ser enviados por FTP, se diseñó un script en Python que permita cifrar y decifrar por medio de
+este algoritmo, utilizando una llave secreta de 16 bytes. Asimismo, se diseñó un generador de claves
+de 16 bytes para simplificar el proceso de prueba y ejecución.
 
 ## Uso del código
 

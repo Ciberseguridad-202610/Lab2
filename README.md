@@ -18,7 +18,7 @@ En general, se utilizó el paquete `pycryptodome` para implementar la solución.
 Antes de empezar, es necesario crear un archivo `k.key` con el generador de claves (16 bits).
 
 ```zsh
-python3 key_gen.py
+python3 key_generator.py
 ```
 
 Una vez hecho esto, en el root del proyecto encontrará el archivo `k.key` con la clave generada.
@@ -42,7 +42,7 @@ Asumiendo que se está corriendo desde `~/`, y que el archivo a encriptar se enc
 
 ### Generar una llave
 ```zsh
-python3 key_gen.py
+python3 key_generator.py
 ```
 El resultado es un archivo binario de 16 bytes y se guardará en `~/k.key`.
 

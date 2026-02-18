@@ -1,9 +1,10 @@
-import os
-import sys
+# DEPRECATED
+# Key generator V1 for AES encryption. Generates a random 16-byte key and saves it to a file named "k.key".
+# Author: Adrian Velasquez
 
 from Crypto.Random import get_random_bytes as rand
 
-
+@DeprecationWarning
 def gen_key():
     """
     Generates a random 16-byte key for AES encryption.

@@ -1,5 +1,5 @@
-# Ciberseguridad Lab 2
-# AES implementation in Python using the Crypto library
+# L3 Ciberseguridad - AES Encryption/Decryption
+# Author: Adrian Velasquez
 
 import sys
 

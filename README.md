@@ -54,7 +54,7 @@ Por ejemplo, si el archivo a encriptar es `archivo.txt`, el resultado se guardar
 Asumiendo que se está corriendo desde `~/`, y que el archivo a encriptar se encuentra en `~/in.txt`, el comando para encriptar el archivo sería:
 
 
-### Generar una llave
+### Generar una llave*
 ```zsh
 python3 key_generator.py
 ```
@@ -70,3 +70,8 @@ python3 aes.py e ~/in.txt ~/k.key
 ```zsh
 python3 aes.py d ~/enc_in.txt ~/k.key
 ```
+
+> **Nota**: El generador de llaves `key_generator.py` está deprecado. Se recomienda utilizar
+> el Key Generator V2 del siguiente repositorio:
+> https://github.com/Ciberseguridad-202610/Key_Generator_V2.git
+> El script `aes.py` se ha actualizado para ser compatible con el nuevo formato de llave generado por el Key Generator V2.
